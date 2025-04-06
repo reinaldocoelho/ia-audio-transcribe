@@ -2,6 +2,15 @@
 
 API para transcrição de audio para uso de forma simples pelo enContact, para obter a transcrição de audios.
 
+A transcrição aceita arquivos: wav, ogg ou opus
+
+## Como funciona
+
+1. Baixe um modelo de linguagem que deseja usar na transcrição, utilizando o link: <https://alphacephei.com/vosk/models>
+2. Ao subir o container, monte o volume '/app/model' apontando para o modelo que você baixou
+    * Ex: VOLUME: $(pwd)/model/vosk-model-small-pt-0.3:/app/model
+3. Efetue a chamada da API conforme os exemplos de uso, enviando seu arquivo como conteúdo da chamada.
+
 ## Exemplo de uso
 
 Para processar arquivos .opus:
@@ -10,7 +19,7 @@ Para processar arquivos .opus:
 curl -X POST "http://localhost:8000/transcribe/" \
   -H  "accept: application/json" \
   -H  "Content-Type: multipart/form-data" \
-  -F "file=@audio-foca-teste.opus"
+  -F "file=@teste.opus"
 ```
 
 Para processar arquivos .wave: 
@@ -19,7 +28,7 @@ Para processar arquivos .wave:
 curl -X POST "http://localhost:8000/transcribe/" \
   -H  "accept: application/json" \
   -H  "Content-Type: multipart/form-data" \
-  -F "file=@audio-foca-teste.opus"
+  -F "file=@teste.wav"
 ```
 
 ## Referências
