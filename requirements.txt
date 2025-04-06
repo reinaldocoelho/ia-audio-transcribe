@@ -1,0 +1,6 @@
+wave
+vosk
+pydub
+fastapi
+uvicorn
+python-multipart

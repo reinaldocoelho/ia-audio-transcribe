@@ -1,0 +1,15 @@
+services:
+  vosk-transcriber:
+    build: .
+    ports: 
+      - "8000:8000"
+    volumes:
+      # - ./app:/app
+      - ./model/vosk-model-small-pt-0.3:/app/model   # Monta apenas a pasta do modelo
+      # - ./audio:/app/audio   # Monta a pasta de áudio, sem sobrescrever transcribe.py
+    environment: 
+      - MODEL_PATH=/app/model 
+    restart: unless-stopped
+    stdin_open: true
+    tty: true
+
