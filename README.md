@@ -4,6 +4,17 @@ API para transcrição de audio para uso de forma simples pelo enContact, para o
 
 ## Exemplo de uso
 
+Para processar arquivos .opus:
+
+```bash
+curl -X POST "http://localhost:8000/transcribe/" \
+  -H  "accept: application/json" \
+  -H  "Content-Type: multipart/form-data" \
+  -F "file=@audio-foca-teste.opus"
+```
+
+Para processar arquivos .wave: 
+
 ```bash
 curl -X POST "http://localhost:8000/transcribe/" \
   -H  "accept: application/json" \
